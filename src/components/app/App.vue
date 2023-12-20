@@ -6,6 +6,15 @@ import MovieList from "@/components/movie-list/MovieList.vue";
 import MovieAddForum from "@/components/movie-add-forum/MovieAddForum.vue";
 
 export default {
+  data() {
+    return {
+        movies: [
+          {name: 'Omar', viewers: 222},
+          {name: 'Abdulhamid', viewers: 111},
+          {name: 'Ertugrul', viewers: 333}
+        ]
+    }
+  },
   components: {
     MovieAddForum,
     MovieList,
@@ -19,14 +28,14 @@ export default {
 <template>
   <div class="app font-monospace">
     <div class="content">
-      <AppInfo />
+      <AppInfo :allMoviesCount="movies.length"/>
       <div class="search-panel">
-        <SearchPanel />
-        <AppFilter />
-        <MovieList />
+        <SearchPanel/>
+        <AppFilter/>
+        <MovieList/>
       </div>
-      <MovieList />
-      <MovieAddForum />
+      <MovieList :movies="movies"/>
+      <MovieAddForum/>
     </div>
   </div>
 </template>
@@ -40,10 +49,12 @@ export default {
   box-shadow: 15px 15px 15px rgba(0, 0, 0, 15);
 
 }
+
 .app {
   height: 100vh;
   color: #000
 }
+
 .content {
   width: 1000px;
   min-height: 700px;
