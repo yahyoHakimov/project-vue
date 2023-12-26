@@ -11,7 +11,9 @@ export default {
         movies: [
           {name: 'Omar', viewers: 222},
           {name: 'Abdulhamid', viewers: 111},
-          {name: 'Ertugrul', viewers: 333}
+          {name: 'Homid', viewers: 333},
+          {name: 'Roziya', viewers: 333},
+          {name: 'Tomi Stark', viewers: 333}
         ]
     }
   },
