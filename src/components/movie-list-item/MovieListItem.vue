@@ -5,13 +5,19 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+    onLike() {
+      this.$emit('onLike', this.movie.id)
+    }
   }
+
 }
 </script>
 
 <template>
   <li class="list-group-item d-flex justify-content-between favourite">
-    <span class="list-group-item-label">{{ movie.name }}</span>
+    <span @click="onLike" class="list-group-item-label">{{ movie.name }}</span>
     <input type="number" class="list-group-item-input" v-bind:value="movie.viewers">
 
     <div class="d-flex justify-content-center align-items-center">
@@ -19,7 +25,7 @@ export default {
         <i class="fas fa-cookie"></i>
       </button>
 
-      <button type="button" class="btn-trash btn-sm">
+      <button type="button" class="btn-trash btn-sm" @click="$emit('onRemove', movie.id)">
         <i class="fas fa-trash"></i>
       </button>
 

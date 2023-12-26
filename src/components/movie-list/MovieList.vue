@@ -16,7 +16,12 @@ export default {
 
 <template>
   <ul class="movie-list list-group">
-    <MovieListItem v-for="movie in movies" v-bind:movie="movie"/>
+    <MovieListItem v-for="movie in movies"
+                   v-bind:movie="movie"
+                   @onLike="$emit('onLike', movie.id)"
+                   @onRemove="$emit('onRemove', $event)"
+
+    />
   </ul>
 </template>
 

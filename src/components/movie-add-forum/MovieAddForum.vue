@@ -13,8 +13,8 @@ export default {
         viewers: this.viewers,
         favorite: false
       }
-      console.log(newMovie)
-    }
+      this.$emit('createMovie', newMovie, "second arg")
+    },
   }
 }
 </script>
@@ -22,20 +22,20 @@ export default {
 <template>
   <div class="movie-add-form">
     <h3>Yangi kino qo'shish</h3>
-    <form class="add-form d-flex">
+    <form class="add-form d-flex" @submit.prevent>
       <input type="text"
              class="form-control new-movie-label"
              placeholder="Qanday kino?"
-             :value='name'
-      v-on:input="name = $event.target.value ">
+             :value="name"
+             @input="name = $event.target.value ">
       <input type="number"
              class="form-control new-movie-label"
              placeholder="Necha marotaba ko'rilgan?"
              :value='viewers'
-             v-on:input="name = $event.target.value"
+             @input="viewers = $event.target.value"
       >
 
-      <button class="btn btn-outline-dark" type="submit">
+      <button class="btn btn-outline-dark" type="submit" @click="addMovie">
         Qo'shish
       </button>
     </form>
