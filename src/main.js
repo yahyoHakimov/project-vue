@@ -1,5 +1,9 @@
+import {createApp} from 'vue'
+import App from '@/components/app/App.vue'
+import uiComponents from './ui-components'
+import './index.css'
 
-import { createApp } from 'vue'
-import App from './components/app/App.vue'
+const app = createApp(App)
 
-createApp(App).mount('#app')
+uiComponents.map(component => app.component(component.name, component))
+app.mount('#app')
